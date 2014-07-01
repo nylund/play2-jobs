@@ -20,12 +20,47 @@ Annotations
 2. `@Every("30min")`
 ..* Examples: "1h", "30min", "15s", "1h 15min"...
 
+Example
+-------
+
+```
+import plugins.jobs.Job;
+import plugins.jobs.On;
+
+@On("0 0 0 * * ?")
+public class MyJob extends Job<Void>
+{
+    @Override
+    public Void run() throws Exception
+    {
+        // Implement job here...
+        return null;
+    }
+}
+```
+
+```
+import plugins.jobs.Job;
+import plugins.jobs.Every;
+
+@Every("30min")
+public class EveryJob extends Job<Void>
+{
+    @Override
+    public Void run() throws Exception
+    {
+        // Implement job here...
+        return null;
+    }
+}
+
+```
+
 
 Setup
 =====
 
-Local setup
------------
-1. Checkout the repository and publish locally (start play and run `compile` and `publishLocal`).
-2. Add dependency to your app by adding `"default" % "play2-jobs_2.10" % "0.1"` to build.sbt.
+1. Local setup
+..* Checkout the repository and publish locally (start play and run `compile` and `publishLocal`).
+..* Add dependency to your app by adding `"default" % "play2-jobs_2.10" % "0.1"` to build.sbt.
 
